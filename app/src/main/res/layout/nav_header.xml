@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/drawer_header_height"
+    android:background="@color/design_default_color_primary_dark"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:padding="@dimen/dim_16"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    <ImageView
+        android:layout_width="@dimen/drawer_image_size"
+        android:layout_height="@dimen/drawer_image_size"
+        android:src="@drawable/ic_launcher_foreground" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/dim_8"
+        android:paddingBottom="@dimen/dim_8"
+        android:text="@string/space_x_launch_info"
+        android:textSize="@dimen/h4" />
+
+</LinearLayout>

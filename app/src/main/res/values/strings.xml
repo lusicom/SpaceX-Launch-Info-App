@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">SpaceX-Launch Info App</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="space_x_launch_info">Space-X Launch Info</string>
+    <string name="title_mock_launches_fragment">Launches Fragment</string>
+    <string name="title_mock_ships_fragment">Ships Fragment</string>
+    <string name="menu_item_title_launches">Launches</string>
+    <string name="menu_item_title_ships">Ships</string>
 </resources>
