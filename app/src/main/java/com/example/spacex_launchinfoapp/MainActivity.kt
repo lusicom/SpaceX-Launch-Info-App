@@ -24,6 +24,10 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+        initNavDrawer()
+    }
+
+    private fun initNavDrawer() {
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
         val navController = navHostFragment.navController
