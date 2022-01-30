@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/nav_launches">
+
+    <fragment
+        android:id="@+id/nav_launches"
+        android:name="com.example.spacex_launchinfoapp.LaunchesFragment"
+        android:label="Launches Fragment"
+        tools:layout="@layout/fragment_launches"/>
+    <fragment
+        android:id="@+id/nav_ships"
+        android:name="com.example.spacex_launchinfoapp.ShipsFragment"
+        android:label="ShipsFragment"
+        tools:layout="@layout/fragment_ships"/>
+
+</navigation>

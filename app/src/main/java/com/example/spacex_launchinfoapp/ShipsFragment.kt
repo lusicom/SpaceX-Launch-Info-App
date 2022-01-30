@@ -14,6 +14,6 @@ class ShipsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // todo fragment content will be implemented in scope of #5
-        return inflater.inflate(R.layout.fragment_ships, container,false)
+        return inflater.inflate(R.layout.fragment_ships, container, false)
     }
 }

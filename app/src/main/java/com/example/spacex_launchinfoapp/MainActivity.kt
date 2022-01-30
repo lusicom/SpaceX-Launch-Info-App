@@ -3,67 +3,41 @@ package com.example.spacex_launchinfoapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
-import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.Toolbar
-import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.*
+import com.example.spacex_launchinfoapp.databinding.ActivityMainBinding
 import com.google.android.material.navigation.NavigationView
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityMainBinding
     private lateinit var drawerLayout: DrawerLayout
+    private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var navigationView: NavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
-        val toolbar = findViewById<Toolbar>(R.id.my_toolbar)
-        setSupportActionBar(toolbar)
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
+        val navController = navHostFragment.navController
+        drawerLayout = binding.drawerLayout
+        navigationView = binding.navView
+        navigationView.setupWithNavController(navController)
 
-        drawerLayout = findViewById(R.id.drawer_layout)
-        navigationView = findViewById(R.id.nav_view)
-        navigationView.setNavigationItemSelectedListener(this)
-
-        val toggle = ActionBarDrawerToggle(
-            this, drawerLayout, toolbar,
-            R.string.navigation_drawer_open, R.string.navigation_drawer_close
-        )
-        drawerLayout.addDrawerListener(toggle)
-        toggle.syncState()
-
-        if (savedInstanceState == null) {
-            navigateToLaunchesScreen()
-            navigationView.setCheckedItem(R.id.nav_launches)
-        }
+        appBarConfiguration = AppBarConfiguration(navController.graph, drawerLayout)
+        findViewById<Toolbar>(R.id.my_toolbar)
+            .setupWithNavController(navController, appBarConfiguration)
     }
 
-    @Override
-    override fun onBackPressed() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.closeDrawer(GravityCompat.START)
-        } else {
-            super.onBackPressed()
-        }
-    }
-
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.nav_launches -> navigateToLaunchesScreen()
-            R.id.nav_ships -> navigateToShipsScreen()
-        }
-
-        drawerLayout.closeDrawer(GravityCompat.START)
-        return true
-    }
-
-    private fun navigateToShipsScreen() {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, ShipsFragment()).commit()
-    }
-
-    private fun navigateToLaunchesScreen() {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, LaunchesFragment()).commit()
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val navController = findNavController(R.id.fragmentContainerView)
+        return item.onNavDestinationSelected(navController) || super.onOptionsItemSelected(item)
     }
 }
