@@ -15,7 +15,7 @@ import com.example.spacex_launchinfoapp.model.LaunchesModel
 class LaunchesAdapter (private val onClick: (LaunchesModel) -> Unit)
     : ListAdapter<LaunchesModel, LaunchesAdapter.LaunchViewHolder>(LaunchDiffCallback) {
 
-    inner class LaunchViewHolder(itemView: View, val onClick: (LaunchesModel) -> Unit)
+     class LaunchViewHolder(itemView: View, val onClick: (LaunchesModel) -> Unit)
         : RecyclerView.ViewHolder(itemView) {
         private val itemImage: ImageView = itemView.findViewById(R.id.launchBadge_imageView)
         private val itemTitle: TextView = itemView.findViewById(R.id.launchName_textView)

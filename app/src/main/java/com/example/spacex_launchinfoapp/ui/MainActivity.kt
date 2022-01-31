@@ -16,7 +16,6 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var drawerLayout: DrawerLayout
-    private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var navigationView: NavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,7 +35,8 @@ class MainActivity : AppCompatActivity() {
         navigationView = binding.navView
         navigationView.setupWithNavController(navController)
 
-        appBarConfiguration = AppBarConfiguration(navController.graph, drawerLayout)
+        val appBarConfiguration = AppBarConfiguration(setOf(R.id.nav_launches, R.id.nav_ships), drawerLayout)
+
         findViewById<Toolbar>(R.id.my_toolbar)
             .setupWithNavController(navController, appBarConfiguration)
     }
