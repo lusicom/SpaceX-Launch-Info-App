@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/nav_launches"
-        android:name="com.example.spacex_launchinfoapp.LaunchesFragment"
+        android:name="com.example.spacex_launchinfoapp.ui.LaunchesFragment"
         android:label="Launches Fragment"
         tools:layout="@layout/fragment_launches"/>
     <fragment
         android:id="@+id/nav_ships"
-        android:name="com.example.spacex_launchinfoapp.ShipsFragment"
+        android:name="com.example.spacex_launchinfoapp.ui.ShipsFragment"
         android:label="ShipsFragment"
         tools:layout="@layout/fragment_ships"/>
 
