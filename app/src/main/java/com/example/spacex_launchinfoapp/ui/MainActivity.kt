@@ -1,4 +1,4 @@
-package com.example.spacex_launchinfoapp
+package com.example.spacex_launchinfoapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,6 +8,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.*
+import com.example.spacex_launchinfoapp.R
 import com.example.spacex_launchinfoapp.databinding.ActivityMainBinding
 import com.google.android.material.navigation.NavigationView
 

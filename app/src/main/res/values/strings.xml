@@ -7,4 +7,6 @@
     <string name="title_mock_ships_fragment">Ships Fragment</string>
     <string name="menu_item_title_launches">Launches</string>
     <string name="menu_item_title_ships">Ships</string>
+    <string name="launch_name">Launch Name</string>
+    <string name="date_of_launch">Date of Launch</string>
 </resources>

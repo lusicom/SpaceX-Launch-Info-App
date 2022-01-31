@@ -1,10 +1,11 @@
-package com.example.spacex_launchinfoapp
+package com.example.spacex_launchinfoapp.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.spacex_launchinfoapp.R
 
 class ShipsFragment : Fragment() {
     @Override
