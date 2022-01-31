@@ -17,11 +17,11 @@ class LaunchesFragment : Fragment() {
     private var _binding: FragmentLaunchesBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var shimmerRecyclerView: ShimmerRecyclerView
+    private lateinit var shimmerLaunchRecyclerView: ShimmerRecyclerView
 
-   private val adapter = LaunchesAdapter {
-       Toast.makeText(context, it.title, Toast.LENGTH_SHORT).show()
-   }
+    private val launchesAdapter = LaunchesAdapter {
+        Toast.makeText(context, it.title, Toast.LENGTH_SHORT).show()
+    }
 
     @Override
     override fun onCreateView(
@@ -38,15 +38,15 @@ class LaunchesFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        binding.launchesRecyclerView.adapter = adapter
+        binding.launchesRecyclerView.adapter = launchesAdapter
         binding.launchesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        launchesAdapter.submitList(getLaunchesSet())
     }
 
     private fun showShimmerEffect() {
-        shimmerRecyclerView = binding.launchesRecyclerView
-        shimmerRecyclerView.showShimmer()
+        shimmerLaunchRecyclerView = binding.launchesRecyclerView
+        shimmerLaunchRecyclerView.showShimmer()
 
-        adapter.submitList(getDataSet())
     }
 
     override fun onDestroy() {
@@ -55,14 +55,14 @@ class LaunchesFragment : Fragment() {
     }
 }
 
-fun getDataSet(): ArrayList<LaunchesModel> {
+private fun getLaunchesSet(): ArrayList<LaunchesModel> {
     val list = arrayListOf<LaunchesModel>()
 
     repeat(10) {
         list.add(
             LaunchesModel(
-            "Launch $it", "$it.03.2011", "https://i.imgur.com/BrW201S.png"
-        )
+                "Launch $it", "$it.03.2011", "https://i.imgur.com/BrW201S.png"
+            )
         )
     }
     return list
