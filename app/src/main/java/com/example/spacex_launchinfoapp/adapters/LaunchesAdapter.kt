@@ -12,11 +12,11 @@ import coil.load
 import com.example.spacex_launchinfoapp.R
 import com.example.spacex_launchinfoapp.model.LaunchesModel
 
-class LaunchesAdapter (private val onClick: (LaunchesModel) -> Unit)
-    : ListAdapter<LaunchesModel, LaunchesAdapter.LaunchViewHolder>(LaunchDiffCallback) {
+class LaunchesAdapter(private val onClick: (LaunchesModel) -> Unit) :
+    ListAdapter<LaunchesModel, LaunchesAdapter.LaunchViewHolder>(LaunchDiffCallback) {
 
-     class LaunchViewHolder(itemView: View, val onClick: (LaunchesModel) -> Unit)
-        : RecyclerView.ViewHolder(itemView) {
+    class LaunchViewHolder(itemView: View, val onClick: (LaunchesModel) -> Unit) :
+        RecyclerView.ViewHolder(itemView) {
         private val itemImage: ImageView = itemView.findViewById(R.id.launchBadge_imageView)
         private val itemTitle: TextView = itemView.findViewById(R.id.launchName_textView)
         private val itemDate: TextView = itemView.findViewById(R.id.launchDate_textView)
@@ -35,7 +35,7 @@ class LaunchesAdapter (private val onClick: (LaunchesModel) -> Unit)
 
             itemTitle.text = launch.title
             itemDate.text = launch.date
-            if(launch.image !=null){
+            if (launch.image != null) {
                 itemImage.load(launch.image)
             } else {
                 itemImage.setImageResource(R.drawable.ic_image_placeholder)
