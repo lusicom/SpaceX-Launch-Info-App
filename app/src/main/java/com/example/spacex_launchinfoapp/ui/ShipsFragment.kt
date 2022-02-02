@@ -9,9 +9,11 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.spacex_launchinfoapp.adapters.ShipsAdapter
 import com.example.spacex_launchinfoapp.databinding.FragmentShipsBinding
-import com.example.spacex_launchinfoapp.model.ShipsModel
+import com.example.spacex_launchinfoapp.uimodel.ShipsModel
 import com.todkars.shimmer.ShimmerRecyclerView
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ShipsFragment : Fragment() {
 
     private var _binding: FragmentShipsBinding? = null
