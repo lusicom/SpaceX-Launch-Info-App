@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.spacex_launchinfoapp.R
-import com.example.spacex_launchinfoapp.model.LaunchesModel
+import com.example.spacex_launchinfoapp.uimodel.LaunchesModel
 
 class LaunchesAdapter(private val onClick: (LaunchesModel) -> Unit) :
     ListAdapter<LaunchesModel, LaunchesAdapter.LaunchViewHolder>(LaunchDiffCallback) {
@@ -60,10 +60,10 @@ class LaunchesAdapter(private val onClick: (LaunchesModel) -> Unit) :
 
 object LaunchDiffCallback : DiffUtil.ItemCallback<LaunchesModel>() {
     override fun areItemsTheSame(oldItem: LaunchesModel, newItem: LaunchesModel): Boolean {
-        return oldItem == newItem
+        return oldItem.title == newItem.title
     }
 
     override fun areContentsTheSame(oldItem: LaunchesModel, newItem: LaunchesModel): Boolean {
-        return oldItem.title == newItem.title
+        return oldItem == newItem
     }
 }

@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.spacex_launchinfoapp.R
-import com.example.spacex_launchinfoapp.model.ShipsModel
+import com.example.spacex_launchinfoapp.uimodel.ShipsModel
 
 class ShipsAdapter(private val onClick: (ShipsModel) -> Unit) :
     ListAdapter<ShipsModel, ShipsAdapter.ShipViewHolder>(ShipDiffCallback) {

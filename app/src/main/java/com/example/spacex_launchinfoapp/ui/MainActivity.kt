@@ -11,7 +11,9 @@ import androidx.navigation.ui.*
 import com.example.spacex_launchinfoapp.R
 import com.example.spacex_launchinfoapp.databinding.ActivityMainBinding
 import com.google.android.material.navigation.NavigationView
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
