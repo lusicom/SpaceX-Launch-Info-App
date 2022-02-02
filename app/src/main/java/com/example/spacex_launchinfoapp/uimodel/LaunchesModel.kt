@@ -1,6 +1,6 @@
 package com.example.spacex_launchinfoapp.uimodel
 
-import com.example.spacex_launchinfoapp.data.network.model.PastLaunchesItem
+import com.example.spacex_launchinfoapp.data.network.launchesmodel.PastLaunchesItem
 
 data class LaunchesModel(
     var title: String,

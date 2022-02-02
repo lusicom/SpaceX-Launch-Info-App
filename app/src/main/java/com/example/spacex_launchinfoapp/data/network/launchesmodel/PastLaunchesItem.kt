@@ -1,4 +1,4 @@
-package com.example.spacex_launchinfoapp.data.network.model
+package com.example.spacex_launchinfoapp.data.network.launchesmodel
 
 
 import com.google.gson.annotations.SerializedName
