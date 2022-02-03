@@ -1,5 +1,6 @@
 package com.example.spacex_launchinfoapp.ui
 
+import android.graphics.Path
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,10 +8,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.spacex_launchinfoapp.viewmodels.LaunchesViewModel
 import com.example.spacex_launchinfoapp.adapters.LaunchesAdapter
 import com.example.spacex_launchinfoapp.databinding.FragmentLaunchesBinding
+import com.example.spacex_launchinfoapp.uimodel.LaunchesModel
 import com.todkars.shimmer.ShimmerRecyclerView
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -22,8 +25,9 @@ class LaunchesFragment : Fragment() {
 
     private lateinit var shimmerLaunchRecyclerView: ShimmerRecyclerView
     private val launchesViewModel: LaunchesViewModel by viewModels()
-    private val launchesAdapter = LaunchesAdapter {
-        Toast.makeText(context, it.title, Toast.LENGTH_SHORT).show()
+    private val launchesAdapter = LaunchesAdapter { launch ->
+        Toast.makeText(context, launch.id, Toast.LENGTH_SHORT).show()
+        adapterOnClick(launch)
     }
 
     @Override
@@ -39,6 +43,12 @@ class LaunchesFragment : Fragment() {
         observeLaunchesData()
 
         return view
+    }
+
+    private fun adapterOnClick(launch: LaunchesModel) {
+        val passId = launch.id
+        val action = LaunchesFragmentDirections.actionNavLaunchesToLaunchDetailsFragment(passId)
+        view?.findNavController()!!.navigate(action)
     }
 
     private fun setupRecyclerView() {

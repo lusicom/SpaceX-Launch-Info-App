@@ -9,11 +9,38 @@
         android:id="@+id/nav_launches"
         android:name="com.example.spacex_launchinfoapp.ui.LaunchesFragment"
         android:label="Launches Fragment"
-        tools:layout="@layout/fragment_launches"/>
+        tools:layout="@layout/fragment_launches">
+        <action
+            android:id="@+id/action_nav_launches_to_launchDetailsFragment"
+            app:destination="@id/nav_launchDetails" />
+    </fragment>
     <fragment
         android:id="@+id/nav_ships"
         android:name="com.example.spacex_launchinfoapp.ui.ShipsFragment"
         android:label="ShipsFragment"
-        tools:layout="@layout/fragment_ships"/>
+        tools:layout="@layout/fragment_ships">
+        <action
+            android:id="@+id/action_nav_ships_to_shipDetailsFragment"
+            app:destination="@id/nav_shipDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_launchDetails"
+        android:name="com.example.spacex_launchinfoapp.LaunchDetailsFragment"
+        android:label="Launch Details"
+        tools:layout="@layout/fragment_launch_details">
+        <argument
+            android:name="launchId"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_shipDetails"
+        android:name="com.example.spacex_launchinfoapp.ShipDetailsFragment"
+        android:label="Ship Details"
+        tools:layout="@layout/fragment_ship_details">
+        <argument
+            android:name="ShipId"
+            app:argType="string" />
+    </fragment>
 
 </navigation>
