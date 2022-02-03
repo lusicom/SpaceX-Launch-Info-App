@@ -57,10 +57,10 @@ class ShipsAdapter(private val onClick: (ShipsModel) -> Unit) :
 
 object ShipDiffCallback : DiffUtil.ItemCallback<ShipsModel>() {
     override fun areItemsTheSame(oldItem: ShipsModel, newItem: ShipsModel): Boolean {
-        return oldItem == newItem
+        return oldItem.id == newItem.id
     }
 
     override fun areContentsTheSame(oldItem: ShipsModel, newItem: ShipsModel): Boolean {
-        return oldItem.title == newItem.title
+        return oldItem == newItem
     }
 }

@@ -60,7 +60,7 @@ class LaunchesAdapter(private val onClick: (LaunchesModel) -> Unit) :
 
 object LaunchDiffCallback : DiffUtil.ItemCallback<LaunchesModel>() {
     override fun areItemsTheSame(oldItem: LaunchesModel, newItem: LaunchesModel): Boolean {
-        return oldItem.title == newItem.title
+        return oldItem.id == newItem.id
     }
 
     override fun areContentsTheSame(oldItem: LaunchesModel, newItem: LaunchesModel): Boolean {

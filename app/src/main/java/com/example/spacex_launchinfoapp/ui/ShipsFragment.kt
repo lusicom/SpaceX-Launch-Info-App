@@ -7,9 +7,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.spacex_launchinfoapp.R
 import com.example.spacex_launchinfoapp.adapters.ShipsAdapter
 import com.example.spacex_launchinfoapp.databinding.FragmentShipsBinding
+import com.example.spacex_launchinfoapp.uimodel.ShipsModel
 import com.example.spacex_launchinfoapp.viewmodels.ShipsViewModel
 import com.todkars.shimmer.ShimmerRecyclerView
 import dagger.hilt.android.AndroidEntryPoint
@@ -23,8 +26,15 @@ class ShipsFragment : Fragment() {
     private lateinit var shimmerShipRecyclerView: ShimmerRecyclerView
     private val shipsViewModel: ShipsViewModel by viewModels()
 
-    private val shipsAdapter = ShipsAdapter {
-        Toast.makeText(context, it.title, Toast.LENGTH_SHORT).show()
+    private val shipsAdapter = ShipsAdapter { ship ->
+        Toast.makeText(context, ship.id, Toast.LENGTH_SHORT).show()
+        adapterOnClick(ship)
+    }
+
+    private fun adapterOnClick(ship: ShipsModel) {
+        val passId = ship.id
+        val action = ShipsFragmentDirections.actionNavShipsToShipDetailsFragment(passId)
+        view?.findNavController()!!.navigate(action)
     }
 
     @Override
